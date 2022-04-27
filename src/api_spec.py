@@ -4,7 +4,8 @@
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
 from apispec_webframeworks.flask import FlaskPlugin
-from marshmallow import Schema, fields
+
+from src.schemas import *
 
 # Create an APISpec
 spec = APISpec(
@@ -14,30 +15,6 @@ spec = APISpec(
     plugins=[FlaskPlugin(), MarshmallowPlugin()],
 )
 
-
-# Define schemas
-class InputSchema(Schema):
-    number = fields.Int(description="An integer.", required=True)
-
-
-class OutputSchema(Schema):
-    msg = fields.String(description="A message.", required=True)
-
-
 # register schemas with spec
-spec.components.schema("Input", schema=InputSchema)
-spec.components.schema("Output", schema=OutputSchema)
-
-# add swagger tags that are used for endpoint annotation
-tags = [
-    {'name': 'test functions',
-     'description': 'For testing the API.'
-     },
-    {'name': 'calculation functions',
-     'description': 'Functions for calculating.'
-     },
-]
-
-for tag in tags:
-    print(f"Adding tag: {tag['name']}")
-    spec.tag(tag)
+spec.components.schema("Line", schema=LineSchema)
+spec.components.schema("Plot", schema=PlotSchema)

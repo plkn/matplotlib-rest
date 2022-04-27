@@ -4,7 +4,7 @@
 from flask import Flask
 
 # load modules
-from src.blueprints.plot_blueprint import plot_bp
+from src.blueprints.plot import plot_bp
 from src.api_spec import spec
 from flask import jsonify
 from src.blueprints.swagger import swagger_ui_blueprint, SWAGGER_URL

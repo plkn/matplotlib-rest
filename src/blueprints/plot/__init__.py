@@ -1,5 +1,4 @@
 # from bottle import route, request, run
-from textblob import TextBlob
 from flask import Blueprint, jsonify, request
 
 from src.schemas import PlotSchema
@@ -26,7 +25,7 @@ def plot():
               schema: LineSchema
     """
     plot_schema = PlotSchema()
-    plot_schema.load(request.json)
+    req = plot_schema.load(request.json)
 
     output = {"msg": "I'm the test endpoint from matplotlib.plot."}
     return jsonify(output)

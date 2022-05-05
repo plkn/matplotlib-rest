@@ -8,4 +8,5 @@ class Subplot:
 
 
 class SubplotSchema(Schema):
-    lie = 1
+    index = fields.Integer(description="Index of a subplot in a subplots grid", required=True, load_default=1)
+    plot = fields.Nested(description="", required=True, load_default="")

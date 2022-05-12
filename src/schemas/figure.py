@@ -20,7 +20,7 @@ class FigureSchema(Schema):
     subplot_columns = fields.Integer(description="Number of columns of suplots grid", required=False, load_default=1)
     subplot_rows = fields.Integer(description="Number of rows of suplots grid", required=False, load_default=1)
     tight_layout = fields.Bool(description="Tight layout switch", required=False, load_default=False)
-    subplots = fields.List(fields.Nested(SubplotSchema))
+    subplots = fields.List(fields.Nested(SubplotSchema), description="List of subplots", required=True)
 
     @post_load
     def load_figure(self, data, **kwargs):

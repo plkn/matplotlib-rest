@@ -52,7 +52,8 @@ class BasePlotSchema(Schema):
         return {self.__plot_type__: data}
 
 
-class PlotSchema(BasePlotSchema):
+# class PlotSchema(BasePlotSchema):
+class PlotSchema:
     __plot_type__ = "plot"
     field_a = fields.String(required=True)
     field_b = fields.String(required=True)

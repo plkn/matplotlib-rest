@@ -1,6 +1,7 @@
 from marshmallow import Schema, fields
 
 from src.schemas import PlotSchema
+from src.schemas.line import BasePlotSchema
 
 
 class Subplot:
@@ -11,4 +12,4 @@ class Subplot:
 
 class SubplotSchema(Schema):
     index = fields.Integer(description="Index of a subplot in a subplots grid", load_default=1)
-    plot = fields.Nested(PlotSchema, description="", required=True)
+    plot = fields.Nested(BasePlotSchema, description="", required=True)

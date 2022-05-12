@@ -1,3 +1,5 @@
+import json
+
 from src.schemas.figure import FigureSchema, Figure
 from src.schemas.line import Plot
 from src.schemas.subplot import Subplot
@@ -9,6 +11,7 @@ def test_figure_scheme_serialization():
     figure = Figure([subplot])
     figure_schema = FigureSchema()
     result = figure_schema.dump(figure)
+    json_result = json.dumps(result)
     pass
 
 

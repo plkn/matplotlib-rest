@@ -49,12 +49,14 @@ class BasePlotSchema(Schema):
 
     @post_dump
     def wrap_with_envelope(self, data, **kwargs):
-        return {self.__plot_type__: data}
+        pass
+        # return {self.__plot_type__: data}
 
 
-# class PlotSchema(BasePlotSchema):
-class PlotSchema:
+# class PlotSchema(Schema):
+class PlotSchema(BasePlotSchema):
     __plot_type__ = "plot"
+    __model__ = Plot
     field_a = fields.String(required=True)
     field_b = fields.String(required=True)
 

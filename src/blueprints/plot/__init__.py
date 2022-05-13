@@ -1,7 +1,8 @@
 # from bottle import route, request, run
 from flask import Blueprint, jsonify, request
 
-from src.schemas import FigureSchema
+from src.schemas import FigureSchema, ResponseSchema
+from src.schemas.response import Response
 
 plot_bp = Blueprint(name="plot_bp", import_name=__name__)
 
@@ -25,8 +26,9 @@ def plot():
               schema: ResponseSchema
     """
     figure_schema = FigureSchema()
-    req = figure_schema.load(request.json)
+    figure = figure_schema.load(request.json)
 
-    output = {"msg": "I'm the test endpoint from matplotlib.plot."}
-    return jsonify(output)
+    resp = Response("sdfsdf")
+    r = ResponseSchema().dump(resp)
+    return r
 

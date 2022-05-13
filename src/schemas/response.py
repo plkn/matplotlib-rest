@@ -1,6 +1,11 @@
-from marshmallow import Schema, fields, post_load
+from marshmallow import Schema, fields
 
 from ..utils.exporter import export
+
+
+class Response:
+    def __init__(self, image_url):
+        self.image_url = image_url
 
 
 @export

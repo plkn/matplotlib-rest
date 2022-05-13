@@ -5,7 +5,7 @@ from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
 from apispec_webframeworks.flask import FlaskPlugin
 
-from src.schemas import *
+import src.schemas as schemas
 
 # Create an APISpec
 spec = APISpec(
@@ -16,5 +16,10 @@ spec = APISpec(
 )
 
 # register schemas with spec
-spec.components.schema("Line", schema=LineSchema)
-spec.components.schema("Plot", schema=PlotSchema)
+
+
+for sc in map(schemas.__dict__.get, schemas.__all__):
+    spec.components.schema(sc)
+
+spec.components.schema("Figure", schema=FigureSchema)
+# spec.components.schema("Plot", schema=PlotSchema)

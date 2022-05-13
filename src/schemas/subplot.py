@@ -1,15 +1,14 @@
 from marshmallow import Schema, fields
 
-from src.schemas import PlotSchema
-from src.schemas.line import BasePlotSchema
+from src.schemas.base_subplot_content import BasePlotSchema
 
 
 class Subplot:
-    def __init__(self, plot, index=1):
-        self.plot = plot
+    def __init__(self, content, index=1):
+        self.content = content
         self.index = index
 
 
 class SubplotSchema(Schema):
     index = fields.Integer(description="Index of a subplot in a subplots grid", load_default=1)
-    plot = fields.Nested(BasePlotSchema, description="", required=True)
+    content = fields.Nested(BasePlotSchema, description="", required=True)

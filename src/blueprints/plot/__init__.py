@@ -1,5 +1,4 @@
-# from bottle import route, request, run
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 
 from src.schemas import FigureSchema, ResponseSchema
 from src.schemas.response import Response

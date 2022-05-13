@@ -1,6 +1,7 @@
 from marshmallow import Schema, fields, post_load
 
 from src.schemas.subplot import SubplotSchema
+from ..utils.exporter import export
 
 
 class Figure:
@@ -14,6 +15,7 @@ class Figure:
         self.subplots = subplots
 
 
+@export
 class FigureSchema(Schema):
     edgecolor = fields.String(description="Edge color", required=False, load_default="white")
     facecolor = fields.String(description="Face color", required=False, load_default="white")

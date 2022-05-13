@@ -1,4 +1,6 @@
-from marshmallow import Schema, fields, post_load, pre_load, post_dump, pre_dump
+from marshmallow import Schema, fields, post_load
+
+from ..utils.exporter import export
 
 
 class Hist:
@@ -7,8 +9,7 @@ class Hist:
         self.field_d = field_d
 
 
-
-
+@export
 class HistSchema(Schema):
     field_c = fields.String(required=True)
     field_d = fields.String(required=True)

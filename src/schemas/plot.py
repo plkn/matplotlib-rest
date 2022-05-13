@@ -1,4 +1,6 @@
-from marshmallow import Schema, fields, post_load, pre_load, post_dump, pre_dump
+from marshmallow import Schema, fields, post_load
+
+from ..utils.exporter import export
 
 
 class Plot:
@@ -8,6 +10,7 @@ class Plot:
         # self.lines = lines
 
 
+@export
 class PlotSchema(Schema):
     field_a = fields.String(required=True)
     field_b = fields.String(required=True)

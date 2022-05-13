@@ -1,9 +1,11 @@
 from marshmallow_oneofschema import OneOfSchema
 
-from src.schemas.hist import Hist, HistSchema
-from src.schemas.plot import Plot, PlotSchema
+from .hist import Hist, HistSchema
+from .plot import Plot, PlotSchema
+from ..utils.exporter import export
 
 
+@export
 class BasePlotSchema(OneOfSchema):
     type_schemas = {"plot": PlotSchema, "hist": HistSchema}
 

@@ -22,7 +22,7 @@ def plot():
           description: call successful
           content:
             application/json:
-              schema: LineSchema
+              schema: ResponseSchema
     """
     figure_schema = FigureSchema()
     req = figure_schema.load(request.json)

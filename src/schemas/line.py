@@ -1,5 +1,7 @@
 from marshmallow import Schema, fields, post_load
 
+from ..utils.exporter import export
+
 
 class Line:
     def __init__(self, y, x=None, label=None, fmt=None, linewidth=1):
@@ -10,6 +12,7 @@ class Line:
         self.linewidth = linewidth
 
 
+@export
 class LineSchema(Schema):
     x = fields.List(fields.Float, description="", required=False)
     y = fields.List(fields.Float, description="")
@@ -20,5 +23,3 @@ class LineSchema(Schema):
     @post_load
     def load_line(self, data, **kwargs):
         return Line(**data)
-
-

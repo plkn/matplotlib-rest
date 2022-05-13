@@ -2,7 +2,7 @@
 
 # apispec via OpenAPI
 from apispec import APISpec
-from apispec.ext.marshmallow import MarshmallowPlugin
+from apispec_oneofschema import MarshmallowPlugin
 from apispec_webframeworks.flask import FlaskPlugin
 
 import src.schemas as schemas
@@ -16,10 +16,5 @@ spec = APISpec(
 )
 
 # register schemas with spec
-
-
-for sc in map(schemas.__dict__.get, schemas.__all__):
-    spec.components.schema(sc)
-
-spec.components.schema("Figure", schema=FigureSchema)
-# spec.components.schema("Plot", schema=PlotSchema)
+for sc in map(lambda _: (_, schemas.__dict__.get(_)), schemas.__all__):
+    spec.components.schema(sc[0], schema=sc[1])

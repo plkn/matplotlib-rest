@@ -1,9 +1,9 @@
 import json
 
-from src.schemas.figure import FigureSchema, Figure
-from src.schemas.hist import Hist
-from src.schemas.plot import Plot
-from src.schemas.subplot import Subplot
+from app.schemas.figure import FigureSchema, Figure
+from app.schemas.hist import Hist
+from app.schemas.plot import Plot
+from app.schemas.subplot import Subplot
 
 
 def test_figure_scheme_serialization():

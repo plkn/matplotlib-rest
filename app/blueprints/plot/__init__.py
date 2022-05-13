@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 
-from src.schemas import FigureSchema, ResponseSchema
-from src.schemas.response import Response
+from app.schemas import FigureSchema, ResponseSchema
+from app.schemas.response import Response
 
 plot_bp = Blueprint(name="plot_bp", import_name=__name__)
 

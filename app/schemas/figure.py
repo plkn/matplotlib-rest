@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, post_load
 
-from src.schemas.subplot import SubplotSchema
+from app.schemas.subplot import SubplotSchema
 from ..utils.exporter import export
 
 

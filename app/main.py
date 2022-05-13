@@ -2,13 +2,12 @@
 
 # load libaries
 from flask import Flask
-
-# load modules
-from src.blueprints.plot import plot_bp
-from src.api_spec import spec
 from flask import jsonify
-from src.blueprints.swagger import swagger_ui_blueprint, SWAGGER_URL
 
+from app.api_spec import spec
+# load modules
+from app.blueprints.plot import plot_bp
+from app.blueprints.swagger import swagger_ui_blueprint, SWAGGER_URL
 
 # init Flask app
 app = Flask(__name__)
@@ -29,3 +28,10 @@ with app.test_request_context():
 @app.route("/api/swagger.json")
 def create_swagger_spec():
     return jsonify(spec.to_dict())
+
+
+if __name__ == "__main__":
+    ####################
+    # FOR DEVELOPMENT
+    ####################
+    app.run(host='0.0.0.0', port=8011, debug=True)

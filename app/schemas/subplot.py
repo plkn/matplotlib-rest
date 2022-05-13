@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields
 
-from src.schemas.base_subplot_content import BasePlotSchema
+from app.schemas.base_subplot_content import BasePlotSchema
 from ..utils.exporter import export
 
 

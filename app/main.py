@@ -1,5 +1,4 @@
 """Flask Application"""
-import os
 from flask import Flask
 from flask import jsonify
 
@@ -32,4 +31,4 @@ if __name__ == "__main__":
     ####################
     # FOR DEVELOPMENT
     ####################
-    app.run(host='0.0.0.0', port=8011, debug=True)
+    app.run(host='0.0.0.0', port=8010, debug=True)

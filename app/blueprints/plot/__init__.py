@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 
-from app.schemas import FigureSchema, ResponseSchema
-from app.schemas.response import Response
+from schemas import FigureSchema, ResponseSchema
+from schemas.response import Response
 
 plot_bp = Blueprint(name="plot_bp", import_name=__name__)
 
@@ -30,4 +30,3 @@ def plot():
     resp = Response("sdfsdf")
     r = ResponseSchema().dump(resp)
     return r
-

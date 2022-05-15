@@ -5,7 +5,7 @@ from apispec import APISpec
 from apispec_oneofschema import MarshmallowPlugin
 from apispec_webframeworks.flask import FlaskPlugin
 
-import app.schemas as schemas
+import schemas as schemas
 
 # Create an APISpec
 spec = APISpec(

@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields
 
-from ..utils.exporter import export
+from utils.exporter import export
 
 
 class Response:

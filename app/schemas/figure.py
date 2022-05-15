@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, post_load
 
-from app.schemas.subplot import SubplotSchema
-from ..utils.exporter import export
+from .subplot import SubplotSchema
+from utils.exporter import export
 
 
 class Figure:

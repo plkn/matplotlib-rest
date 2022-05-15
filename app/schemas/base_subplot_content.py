@@ -2,7 +2,7 @@ from marshmallow_oneofschema import OneOfSchema
 
 from .hist import Hist, HistSchema
 from .plot import Plot, PlotSchema
-from ..utils.exporter import export
+from utils.exporter import export
 
 
 @export

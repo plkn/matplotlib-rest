@@ -1,4 +1,12 @@
-version: '3'
+version: '3.9'
 services:
   api:
     build: ./
+    image: matplotlib-rest
+    ports:
+      - "8011:80"
+    volumes:
+      - cache:/usr/matplotlib-rest
+volumes:
+  cache:
+

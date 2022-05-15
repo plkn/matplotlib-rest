@@ -1,4 +1,14 @@
 """Flask Application"""
+import os
+
+# if __name__ == "__main__":
+#     ####################
+#     # FOR DEVELOPMENT
+#     ####################
+#     import sys
+#     sys.path.append(os.getcwd())
+
+print("getcwd = ", os.getcwd())
 
 # load libaries
 from flask import Flask
@@ -6,8 +16,8 @@ from flask import jsonify
 
 from app.api_spec import spec
 # load modules
-from app.blueprints.plot import plot_bp
-from app.blueprints.swagger import swagger_ui_blueprint, SWAGGER_URL
+from blueprints.plot import plot_bp
+from blueprints.swagger import swagger_ui_blueprint, SWAGGER_URL
 
 # init Flask app
 app = Flask(__name__)

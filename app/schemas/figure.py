@@ -1,11 +1,14 @@
+from typing import List
+
 from marshmallow import Schema, fields, post_load
 
-from .subplot import SubplotSchema
 from utils.exporter import export
+from .subplot import SubplotSchema, SubplotParams
 
 
-class Figure:
-    def __init__(self, subplots, tight_layout=False, edgecolor='white', facecolor='white', subplot_columns=1,
+class FigureParams:
+    def __init__(self, subplots: List[SubplotParams], tight_layout=False, edgecolor='white', facecolor='white',
+                 subplot_columns=1,
                  subplot_rows=1):
         self.edgecolor = edgecolor
         self.facecolor = facecolor
@@ -26,4 +29,4 @@ class FigureSchema(Schema):
 
     @post_load
     def load_figure(self, data, **kwargs):
-        return Figure(**data)
+        return FigureParams(**data)

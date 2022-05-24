@@ -4,7 +4,7 @@ from utils.exporter import export
 from .base_subplot_content import BasePlotSchema
 
 
-class Subplot:
+class SubplotParams:
     def __init__(self, subplot, index=1):
         self.subplot = subplot
         self.index = index

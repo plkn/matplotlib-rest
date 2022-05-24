@@ -1,7 +1,8 @@
 import json
 
-from flask import Blueprint, request
+from flask import Blueprint, request, send_file
 
+from core import build_figure
 from schemas import FigureSchema, ResponseSchema
 from schemas.response import Response
 
@@ -9,7 +10,7 @@ figure_bp = Blueprint(name="figure_bp", import_name=__name__)
 
 
 @figure_bp.route('/', methods=['POST'])
-def build_figure():
+def build():
     """
     ---
     post:
@@ -28,6 +29,8 @@ def build_figure():
     """
     figure_schema = FigureSchema()
     figure = figure_schema.load(request.json)
+
+    build_figure(figure)
 
     resp = Response(json.dumps(figure.__dict__))
     r = ResponseSchema().dump(resp)

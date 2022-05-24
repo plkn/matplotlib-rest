@@ -11,7 +11,7 @@ class BasePlotSchema(OneOfSchema):
 
     def get_obj_type(self, obj):
         if isinstance(obj, Plot):
-            return "plot"
+            return "figure"
         elif isinstance(obj, Hist):
             return "hist"
         else:

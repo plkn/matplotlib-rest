@@ -13,5 +13,5 @@ class Subplot:
 @export
 class SubplotSchema(Schema):
     index = fields.Integer(description="Index of a subplot in a subplots grid", load_default=1)
-    content = fields.Nested(BasePlotSchema, description="Content of a subplot. Either plot, hist or another "
+    content = fields.Nested(BasePlotSchema, description="Content of a subplot. Either figure, hist or another "
                                                         "matplotlib function.", required=True)

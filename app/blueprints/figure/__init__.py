@@ -1,17 +1,19 @@
+import json
+
 from flask import Blueprint, request
 
 from schemas import FigureSchema, ResponseSchema
 from schemas.response import Response
 
-plot_bp = Blueprint(name="plot_bp", import_name=__name__)
+figure_bp = Blueprint(name="figure_bp", import_name=__name__)
 
 
-@plot_bp.route('/', methods=['POST'])
-def plot():
+@figure_bp.route('/', methods=['POST'])
+def build_figure():
     """
     ---
     post:
-      description: matplotlib.plot endpoint
+      description: matplotlib.figure endpoint
       requestBody:
         required: true
         content:
@@ -27,6 +29,6 @@ def plot():
     figure_schema = FigureSchema()
     figure = figure_schema.load(request.json)
 
-    resp = Response("sdfsdf")
+    resp = Response(json.dumps(figure.__dict__))
     r = ResponseSchema().dump(resp)
     return r

@@ -28,7 +28,7 @@ def test_figure_scheme_deserialization():
         "subplots": [
             {
                 "index": 3,
-                "plot": {}
+                "figure": {}
             }
         ]
     })

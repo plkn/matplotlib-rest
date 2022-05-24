@@ -4,7 +4,7 @@ import requests
 
 
 def test_plot_bp_index(api_v1_host):
-    endpoint = "/".join([api_v1_host, 'plot', 'test'])
+    endpoint = "/".join([api_v1_host, 'figure', 'test'])
     response = requests.get(endpoint)
     assert response.status_code == 200
     json = response.json()
